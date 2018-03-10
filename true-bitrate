@@ -1,0 +1,17 @@
+#!/bin/bash
+CONVERT=`which ffmpeg`
+if [ $? -eq 1 ]; then
+  echo "Cannot find ffmpeg library, is it installed?"
+  exit -1
+fi
+if [ $# -eq 0 ]; then
+  echo "usage: $0 audio_file.flac"
+  exit 0
+fi
+$CONVERT -loglevel panic -i "$1" "/tmp/true_$$.wav"
+if [ -f "/tmp/true_$$.wav" ]; then
+  python2 true-bitrate.py "/tmp/true_$$.wav"
+  RESULT=$?
+  rm "/tmp/true_$$.wav"
+fi
+exit $RESULT

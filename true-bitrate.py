@@ -69,7 +69,28 @@ spectrum = moving_average(spectrum,freq/100)
 # find cutoff in frequency spectrum
 cutoff = find_cutoff(spectrum,freq/50,1.25,1.1)
 # print percentage of frequency spectrum before cutoff
-print (cutoff*100)/freq
+print '%s kHz' % (cutoff/2000)
+print '(%s kHz)' % (cutoff/2000.0)
+if (cutoff/2000) == 11:
+  print '64 kbps'
+elif (cutoff/2000) == 16:
+  print '128 kbps'
+elif (cutoff/2000) == 19:
+  print '192 kbps'
+elif (cutoff/2000) == 20:
+  print '320 kbps'
+elif (cutoff/2000) == 22:
+  print '500 kbps'
+elif (cutoff*100)/freq > 90:
+  print 'lossless'
+else:
+  print """
+  11 kHz: 64 kbps
+  16 kHz: 128 kbps
+  19 kHz: 192 kbps
+  20 kHz: 320 kbps
+  22 kHz: 500 kbps
+  """
 
 # debugging only:
 if globals().has_key('plt'):
