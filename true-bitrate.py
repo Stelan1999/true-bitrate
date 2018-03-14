@@ -68,7 +68,7 @@ spectrum = scipy.log10(spectrum)
 spectrum = moving_average(spectrum,freq/100)
 # find cutoff in frequency spectrum
 cutoff = find_cutoff(spectrum,freq/50,1.25,1.1)
-# print percentage of frequency spectrum before cutoff
+# print bit rate of frequency spectrum before cutoff
 print '%s kHz' % (cutoff/2000)
 print '(%s kHz)' % (cutoff/2000.0)
 if (cutoff/2000) == 11:
