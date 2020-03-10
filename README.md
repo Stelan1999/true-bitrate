@@ -8,9 +8,9 @@ Little command-line tool to find out true audio file bit rate
 
 ## Usage
 
-First install `ffmpeg` and `python2-scipy` packages (and also `python2-matplotlib` for debug purposes).
+First install `ffmpeg` and `python-scipy` packages (and also `python-matplotlib` for debug purposes).
 
-Python 2.7 is required to run this properly.
+Python 3 is required to run this properly.
 
 Finally you can just open a command line in true-bitrate folder and run:
 
