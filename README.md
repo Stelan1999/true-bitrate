@@ -19,3 +19,5 @@ Finally you can just open a command line in true-bitrate folder and run:
 ## Status
 
 `maintained`
+
+You might want to buy me a [hot chocolate ☕](https://paypal.me/dvorapa).
