@@ -4,7 +4,6 @@
 # uncomment for debugging:
 #import matplotlib.pyplot as plt
 import numpy
-import scipy
 from scipy.fftpack import rfft
 from scipy.io.wavfile import read
 from scipy.signal import hann
@@ -53,7 +52,7 @@ freq = input_data[0]
 audio = input_data[1]
 channel = 0
 samples = len(audio[:, 0])
-seconds = samples // freq
+seconds = int(samples / freq)
 seconds = min(seconds, 30)
 spectrum = [0] * freq
 
