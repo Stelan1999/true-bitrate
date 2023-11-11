@@ -4,9 +4,10 @@
 # uncomment for debugging:
 #import matplotlib.pyplot as plt
 import numpy
+import soundfile
 from scipy.fftpack import rfft
 from scipy.io.wavfile import read
-from scipy.signal import hann
+from scipy.signal.windows import hann
 import sys
 import warnings
 
@@ -42,14 +43,16 @@ if len(sys.argv[1:]) < 1:
 try:
   with warnings.catch_warnings():
     warnings.simplefilter('ignore')
-    input_data = read(sys.argv[1])
+    input_data = soundfile.read(sys.argv[1])
 except IOError as e:
   print(e[1])
   sys.exit(e[0])
+#print(input_data[0])
+#print(input_data[1])
 
 # process data
-freq = input_data[0]
-audio = input_data[1]
+freq = input_data[1]
+audio = input_data[0]
 channel = 0
 samples = len(audio[:, 0])
 seconds = int(samples / freq)
